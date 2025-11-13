@@ -1,0 +1,13 @@
+[
+  {
+    "pattern_id": "PATTERN_SIMON_MEN_SHIRT",
+    "label_ja": "メンズシャツ（Simon）",
+    "fs_pattern_id": "simon",
+    "body_id_default": "BODY_MEN_20_MID_JIS_M",
+    "block_id_main": "BLOCK_SHIRT_MEN_BRIAN_BASE",
+    "category": "TOP",
+    "sub_category": "SHIRT",
+    "gender": "MEN",
+    "note_ja": "FreeSewingのSimonシャツ。Brianブロックベースの細身シャツ。"
+  }
+]

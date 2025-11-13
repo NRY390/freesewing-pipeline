@@ -1,0 +1,62 @@
+[
+  {
+    "shape_id": "SHAPE_NEKOSE",
+    "label_ja": "猫背",
+    "posture_type": "NEKOSE",
+    "shoulder_type": "NORMAL",
+    "chest_type": "NORMAL",
+    "delta_shoulderSlope_deg": 0,
+    "delta_shoulderToShoulder_mm": 0,
+    "delta_hpsToBust_mm": -5,
+    "delta_hpsToWaistFront_mm": -5,
+    "delta_hpsToWaistBack_mm": 10,
+    "delta_highBust_mm": 0,
+    "delta_highBustFront_mm": 0,
+    "note_ja": "前傾気味なので前身頃を少し短く、後身頃を長くする補正。バストポイントもやや上がる想定。"
+  },
+  {
+    "shape_id": "SHAPE_HATOMUNE",
+    "label_ja": "ハトムネ",
+    "posture_type": "NORMAL",
+    "shoulder_type": "NORMAL",
+    "chest_type": "HATOMUNE",
+    "delta_shoulderSlope_deg": 0,
+    "delta_shoulderToShoulder_mm": 0,
+    "delta_hpsToBust_mm": -5,
+    "delta_hpsToWaistFront_mm": 0,
+    "delta_hpsToWaistBack_mm": 0,
+    "delta_highBust_mm": 10,
+    "delta_highBustFront_mm": 10,
+    "note_ja": "胸郭が前に張り出すため、ハイバストと前ハイバスト長を増やし、HPS→BPは僅かに短く。"
+  },
+  {
+    "shape_id": "SHAPE_IGARI",
+    "label_ja": "怒肩",
+    "posture_type": "NORMAL",
+    "shoulder_type": "IGARI",
+    "chest_type": "NORMAL",
+    "delta_shoulderSlope_deg": -2,
+    "delta_shoulderToShoulder_mm": 5,
+    "delta_hpsToBust_mm": 0,
+    "delta_hpsToWaistFront_mm": 0,
+    "delta_hpsToWaistBack_mm": 0,
+    "delta_highBust_mm": 0,
+    "delta_highBustFront_mm": 0,
+    "note_ja": "肩線が水平寄りになるイメージで肩傾斜を減らし、肩幅をわずかにプラス補正。"
+  },
+  {
+    "shape_id": "SHAPE_NADE",
+    "label_ja": "なで肩",
+    "posture_type": "NORMAL",
+    "shoulder_type": "NADE",
+    "chest_type": "NORMAL",
+    "delta_shoulderSlope_deg": 2,
+    "delta_shoulderToShoulder_mm": -5,
+    "delta_hpsToBust_mm": 0,
+    "delta_hpsToWaistFront_mm": 0,
+    "delta_hpsToWaistBack_mm": 0,
+    "delta_highBust_mm": 0,
+    "delta_highBustFront_mm": 0,
+    "note_ja": "肩線が落ちるイメージで肩傾斜を増やし、肩幅をわずかにマイナス補正。"
+  }
+]

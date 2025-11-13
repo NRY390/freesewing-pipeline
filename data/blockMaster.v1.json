@@ -1,0 +1,11 @@
+[
+  {
+    "block_id": "BLOCK_SHIRT_MEN_BRIAN_BASE",
+    "label_ja": "メンズシャツ原型（Brianベース）",
+    "gender": "MEN",
+    "category": "TOP",
+    "sub_category": "SHIRT",
+    "fs_base_block": "brian",
+    "note_ja": "SimonシャツのベースとなるBrian系ブロック。FreeSewing公式ドキュメントに基づく。"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "key": "front_length_mm",
+      "method": "point_distance",
+      "from_id": "front.hps",
+      "to_id": "front.cfHem",
+      "note_ja": "HPS→前裾中心。要point ID確認"
+    },
+    {
+      "key": "back_length_mm",
+      "method": "point_distance",
+      "from_id": "back.hps",
+      "to_id": "back.cbHem",
+      "note_ja": "HPS→後裾中心。要point ID確認"
+    },
+    {
+      "key": "shoulder_width_mm",
+      "method": "point_distance",
+      "from_id": "back.shoulderLeft",
+      "to_id": "back.shoulderRight",
+      "note_ja": "左右肩先。要point ID確認"
+    },
+    {
+      "key": "sleeve_length_mm",
+      "method": "point_distance",
+      "from_id": "sleeve.cap",
+      "to_id": "sleeve.hemCenter",
+      "note_ja": "袖山→袖口。要point ID確認"
+    },
+    {
+      "key": "hem_circumference_mm",
+      "method": "path_length_sum",
+      "path_ids": ["front.hem", "back.hem"],
+      "note_ja": "裾まわり（前後裾パス合計）。要path ID確認"
+    },
+    {
+      "key": "armhole_length_mm",
+      "method": "path_length_sum",
+      "path_ids": ["front.armhole", "back.armhole"],
+      "note_ja": "アームホール合計長。要path ID確認"
+    }
+  ]
+}

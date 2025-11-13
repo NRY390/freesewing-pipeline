@@ -1,0 +1,26 @@
+{
+    "name": "freesewing-pipeline",
+    "version": "1.0.0",
+    "description": "FreeSewing を使って型紙SVGを生成する最小ライン（Simonシャツ向け）",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "draft:simon": "npm run build && node dist/freesewing/draftSimon.js",
+        "draft:simon:nekose": "npm run build && node dist/freesewing/draftSimonNekose.js",
+        "draft:simon:both": "npm run build && node dist/freesewing/draftSimon.js && node dist/freesewing/draftSimonNekose.js",
+        "introspect:simon": "npm run build && node dist/tools/introspectSvg.js --out output/_introspect_simon.json",
+        "extract:fromsvg": "npm run build && node dist/tools/extractFromSvg.js output/some.svg data/mapping.simon.features.v1.json",
+        "draft:grid:features": "npm run build && node dist/freesewing/draftSimonGrid.js"
+    },
+    "dependencies": {
+        "@freesewing/simon": "^3.0.0",
+        "@xmldom/xmldom": "^0.8.11",
+        "svg-path-properties": "^1.3.0",
+        "xpath": "^0.0.33"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.0"
+    }
+}

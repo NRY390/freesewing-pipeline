@@ -1,0 +1,48 @@
+{
+  "$schema": "internal",
+  "pattern": "simon",
+  "version": "v1",
+  "notes_ja": "最小の features 抽出マッピング。まずはコア6項目から開始。",
+  "features": {
+    "front_length_mm": {
+      "method": "bbox-height",
+      "groups": [
+        "fs-stack-simon.frontRight-part-simon.frontRight",
+        "fs-stack-simon.frontLeft-part-simon.frontLeft"
+      ],
+      "notes_ja": "前身頃の上下外接差。まずは近似でOK。必要なら後で経路指定に切替。"
+    },
+    "back_length_mm": {
+      "method": "bbox-height",
+      "groups": [
+        "fs-stack-simon.back-part-simon.back"
+      ],
+      "notes_ja": "後身頃の上下外接差。ヨーク分含まれる想定。"
+    },
+    "sleeve_length_mm": {
+      "method": "bbox-height",
+      "groups": [
+        "fs-stack-simon.sleeve-part-simon.sleeve"
+      ],
+      "notes_ja": "袖の上下外接差。"
+    },
+    "hem_circum_mm": {
+      "method": "path-sum",
+      "path_ids": [
+        "fs-19", "fs-24", "fs-4", "fs-35"
+      ],
+      "notes_ja": "裾線の合算（暫定）。ブラウザで各IDを目視確認のうえ差し替え・追加・削除を行う。"
+    },
+    "collar_stand_len_mm": {
+      "method": "path-sum",
+      "path_ids": ["fs-10", "fs-11", "fs-12"],
+      "notes_ja": "台衿の輪郭（暫定）。要目視確認。"
+    },
+    "cuff_len_mm": {
+      "method": "path-sum",
+      "path_ids": ["fs-13"],
+      "notes_ja": "カフス輪郭（暫定）。要目視確認。"
+    }
+  }
+}
+
