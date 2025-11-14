@@ -5,6 +5,8 @@
     "main": "dist/index.js",
     "scripts": {
         "build": "tsc",
+        "test": "npm run build && node --test dist/tests/**/*.js",
+        "test:features:simon": "npm run build && node --test dist/tests/features.simon.test.js",
         "draft:simon": "npm run build && node dist/freesewing/draftSimon.js",
         "draft:simon:nekose": "npm run build && node dist/freesewing/draftSimonNekose.js",
         "draft:simon:both": "npm run build && node dist/freesewing/draftSimon.js && node dist/freesewing/draftSimonNekose.js",
