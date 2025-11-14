@@ -1,0 +1,16 @@
+{
+  "$schema": "internal",
+  "pattern": "bent",
+  "version": "v1",
+  "notes_ja": "Bentパターン（2パーツスリーブ）用マッピング。スリーブのみのパターンのため、front_length_mm/back_length_mmは抽出不可。",
+  "features": {
+    "sleeve_length_mm": {
+      "method": "bbox-height",
+      "groups": [
+        "fs-stack-bent.sleeve-part-bent.sleeve"
+      ],
+      "notes_ja": "袖の上下外接差。"
+    }
+  }
+}
+

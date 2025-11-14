@@ -728,3 +728,5 @@ node dist/tools/extractFromSvg.js \
 **実装者**: AI Assistant (Cursor)  
 **検証状況**: ✅ 4サンプル全てで抽出成功、既存機能保護確認済み
 
+
+

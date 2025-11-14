@@ -16,6 +16,7 @@ type LegacyFeatureDef =
 // 新形式（手順書準拠）
 type FeatureDef =
   | { method: "bbox-height"; groups: string[]; notes_ja?: string }
+  | { method: "y-extent"; groups: string[]; notes_ja?: string } // Y方向の端点測定（精度向上）
   | { method: "path-sum"; path_ids: string[]; notes_ja?: string }
   | {
       method: "point_distance";
@@ -166,6 +167,55 @@ function getBBoxHeightFromGroups(
   return combinedMaxY - combinedMinY;
 }
 
+/**
+ * Y方向の端点（上端〜裾端）を測定（精度向上版）
+ * 前中心/後中心の上端〜裾端を正確に測定するため、グループ内のすべてのpath要素から
+ * Y方向の最小値と最大値を取得し、その差分を返す
+ */
+function getYExtentFromGroups(
+  doc: Document,
+  groupIds: string[]
+): number | null {
+  let combinedMinY = Infinity;
+  let combinedMaxY = -Infinity;
+  let foundAny = false;
+
+  for (const groupId of groupIds) {
+    const groupNode = xpath.select1(`//*[@id="${groupId}"]`, doc) as any;
+    if (!groupNode) continue;
+
+    // グループ内のすべてのpath要素を取得
+    const paths = xpath.select(`.//*[local-name()='path']`, groupNode) as any[];
+
+    for (const pathEl of paths) {
+      const d = pathEl.getAttribute?.("d");
+      if (!d) continue;
+
+      try {
+        const props = new svgPathProperties(d);
+        const length = props.getTotalLength();
+
+        // より多くのサンプルポイントで精度を向上（100サンプル）
+        const samples = 100;
+        for (let i = 0; i <= samples; i++) {
+          const point = props.getPointAtLength((length * i) / samples);
+          combinedMinY = Math.min(combinedMinY, point.y);
+          combinedMaxY = Math.max(combinedMaxY, point.y);
+          foundAny = true;
+        }
+      } catch (e) {
+        // エラー時はスキップ
+      }
+    }
+  }
+
+  if (!foundAny || !isFinite(combinedMinY) || !isFinite(combinedMaxY)) {
+    return null;
+  }
+
+  return combinedMaxY - combinedMinY;
+}
+
 function dist(a: Pt, b: Pt): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
@@ -182,6 +232,8 @@ export function extractGarmentMeasuresFromSvg(svg: string, mapping: Mapping) {
     for (const [key, feature] of Object.entries(mapping.features)) {
       if (feature.method === "bbox-height") {
         result[key] = getBBoxHeightFromGroups(doc, feature.groups);
+      } else if (feature.method === "y-extent") {
+        result[key] = getYExtentFromGroups(doc, feature.groups);
       } else if (feature.method === "path-sum") {
         let sum = 0;
         let ok = true;

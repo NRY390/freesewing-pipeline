@@ -1,23 +1,23 @@
 {
   "$schema": "internal",
   "pattern": "simon",
-  "version": "v1",
-  "notes_ja": "最小の features 抽出マッピング。まずはコア6項目から開始。",
+  "version": "v1.1",
+  "notes_ja": "精度向上版：前丈/後丈をy-extentメソッドに変更（Y方向の端点測定）。",
   "features": {
     "front_length_mm": {
-      "method": "bbox-height",
+      "method": "y-extent",
       "groups": [
         "fs-stack-simon.frontRight-part-simon.frontRight",
         "fs-stack-simon.frontLeft-part-simon.frontLeft"
       ],
-      "notes_ja": "前身頃の上下外接差。まずは近似でOK。必要なら後で経路指定に切替。"
+      "notes_ja": "前身頃のY方向端点（上端〜裾端）。精度向上版。"
     },
     "back_length_mm": {
-      "method": "bbox-height",
+      "method": "y-extent",
       "groups": [
         "fs-stack-simon.back-part-simon.back"
       ],
-      "notes_ja": "後身頃の上下外接差。ヨーク分含まれる想定。"
+      "notes_ja": "後身頃のY方向端点（上端〜裾端）。精度向上版。"
     },
     "sleeve_length_mm": {
       "method": "bbox-height",
